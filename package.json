@@ -1,0 +1,8 @@
+{
+  "name": "react-deep-renderer",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/scry/react-deep-renderer.git",
+  "author": "Ross-Esmond <r.esmond@protonmail.com>",
+  "license": "MIT"
+}
