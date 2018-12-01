@@ -4,5 +4,11 @@
   "main": "src/index.js",
   "repository": "https://github.com/scry/react-deep-renderer.git",
   "author": "Ross-Esmond <r.esmond@protonmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
 }
