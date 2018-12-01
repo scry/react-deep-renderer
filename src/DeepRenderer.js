@@ -1,9 +1,5 @@
 class DeepRenderer {
-  render (descriptors) {
-    
-  }
-
-  getRenderOutput () {
+  static render (descriptors) {
     return null
   }
 }
