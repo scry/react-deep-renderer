@@ -60,3 +60,41 @@ test('should return a composition tree if given a function component', function 
     }]
   })
 })
+
+function FakeFrame ({ children }) {
+  return (
+    <div>
+      {children}
+    </div>
+  )
+}
+
+function FakeLayer () {
+  return (
+    <FakeFrame>
+      <span />
+    </FakeFrame>
+  )
+}
+
+test('should return a composition tree if given a function component', function () {
+  const comp = <FakeLayer />
+
+  expect(DeepRenderer.render(comp)).toEqual({
+    type: FakeLayer,
+    children: [],
+    begits: [{
+      type: FakeFrame,
+      children: [{
+        type: 'span',
+        children: [],
+        begits: []
+      }],
+      begits: [{
+        type: 'div',
+        children: [],
+        begits: []
+      }]
+    }]
+  })
+})
