@@ -18,15 +18,15 @@ function dive (descriptors) {
 let visited = new WeakSet()
 
 class DeepRenderer {
-  static render (descriptors) {
+  static convert (descriptors) {
     if (descriptors == null) return null
     if (visited.has(descriptors)) return null
 
     visited.add(descriptors)
 
-    const children = Collection.of(DeepRenderer.render(descriptors.props.children))
+    const children = Collection.of(DeepRenderer.convert(descriptors.props.children))
 
-    const begits = Collection.of(DeepRenderer.render(dive(descriptors)))
+    const begits = Collection.of(DeepRenderer.convert(dive(descriptors)))
 
     return {
       type: descriptors.type,
