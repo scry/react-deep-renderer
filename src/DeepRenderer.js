@@ -6,6 +6,15 @@ class Collection {
   }
 }
 
+function dive (descriptors) {
+  switch (typeof descriptors.type) {
+    case 'string':
+      return null
+    case 'function':
+      return descriptors.type(descriptors.props)
+  }
+}
+
 class DeepRenderer {
   static render (descriptors) {
     if (descriptors == null) return null
@@ -13,7 +22,7 @@ class DeepRenderer {
     return {
       type: descriptors.type,
       children: Collection.of(DeepRenderer.render(descriptors.props.children)),
-      begits: []
+      begits: Collection.of(DeepRenderer.render(dive(descriptors)))
     }
   }
 }

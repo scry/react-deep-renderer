@@ -27,7 +27,7 @@ test('should return the correct dom type', function () {
   })
 })
 
-test('should return a tree if given a dom node with children', function () {
+test('should return a render tree if given a dom node with children', function () {
   const div = <div><span /></div>
 
   expect(DeepRenderer.render(div)).toEqual({
@@ -38,5 +38,25 @@ test('should return a tree if given a dom node with children', function () {
       begits: []
     }],
     begits: []
+  })
+})
+
+function FakeComponent () {
+  return (
+    <div />
+  )
+}
+
+test('should return a composition tree if given a function component', function () {
+  const comp = <FakeComponent />
+
+  expect(DeepRenderer.render(comp)).toEqual({
+    type: FakeComponent,
+    children: [],
+    begits: [{
+      type: 'div',
+      children: [],
+      begits: []
+    }]
   })
 })
